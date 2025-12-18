@@ -1,0 +1,15 @@
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: #c4ae78 !important;
+    height: 90px;
+    width: 100%;
+    background-image: url(../images/dark_leather.png);
+    margin-top: 25px;
+}
+
+.copyright {
+    padding: 25px 15px 25px 0;
+    text-align: center;
+}

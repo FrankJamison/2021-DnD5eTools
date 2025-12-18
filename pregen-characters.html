@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" width="device-width, initial-scale=1.0" />
+    <title>DnD5eTools.com Pre-Generated Character Sheets</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Cinzel|Cinzel+Decorative"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/menu.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/characters.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div include-html="header.html"></div>
+
+      <main>
+        <div class="container characters">
+          <h1>D&amp;D 5E Pre-Generated Characters</h1>
+          <p class="info">
+            As both a player and DM Resource, I have created a collection of
+            pre-generated characters for you to use.
+          </p>
+          <p class="info">
+            All of the 131 characters on this site are leveled from 1 through 20 and equipment was purchased using the DnD5eTools.com Magic Item Price Guides.
+            I hope you find this a valuable resource.
+          </p>
+
+          <form id="get_characters_form" novalidate>
+            <div id="class-selector">
+              <label for="class">Select a Class: </label>
+              <select
+                name="class"
+                id="class"
+                onChange="setMaxLevel(this.value);"
+              >
+                <option value="" disabled selected>Select</option>
+                <option value="Artificer">Artificer</option>
+                <option value="Barbarian">Barbarian</option>
+                <option value="Bard">Bard</option>
+                <option value="Blood Hunter">Blood Hunter</option>
+                <option value="Cleric">Cleric</option>
+                <option value="Druid">Druid</option>
+                <option value="Fighter">Fighter</option>
+                <option value="Monk">Monk</option>
+                <option value="Paladin">Paladin</option>
+                <option value="Ranger">Ranger</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Sorcerer">Sorcerer</option>
+                <option value="Warlock">Warlock</option>
+                <option value="Wizard">Wizard</option>
+              </select>
+            </div>
+            <div id="level-selector">
+              <label for="level">Select a Level: </label>
+              <select name="level" id="level">
+                <option value=""></option>
+                <!-- <option value="1">1st Level</option>
+                            <option value="2">2nd Level</option>
+                            <option value="3">3rd Level</option>
+                            <option value="4">4th Level</option>
+                            <option value="5">5th Level</option>
+                            <option value="6">6th Level</option>
+                            <option value="7">7th Level</option>
+                            <option value="8">8th Level</option>
+                            <option value="9">9th Level</option>
+                            <option value="10">10th Level</option>
+                            <option value="11">11th Level</option>
+                            <option value="12">12th Level</option>
+                            <option value="13">13th Level</option>
+                            <option value="14">14th Level</option>
+                            <option value="15">15th Level</option>
+                            <option value="16">16th Level</option>
+                            <option value="17">17th Level</option>
+                            <option value="18">18th Level</option>
+                            <option value="19">19th Level</option>
+                            <option value="20">20th Level</option> -->
+              </select>
+            </div>
+            <button
+              type="submit"
+              id="getCharacters"
+              onclick="doGetCharacters(event);"
+              class="button"
+            >
+              Search
+            </button>
+          </form>
+
+          <div id="characters">
+            <div>Loading...</div>
+          </div>
+        </div>
+      </main>
+
+      <div include-html="footer.html"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.14/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.14/es5-sham.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.5/es6-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.5/es6-sham.min.js"></script>
+    <script src="./js/characters-api.service.js"></script>
+    <script src="./js/characters.service.js"></script>
+    <script src="./js/getCharacterSelection.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/includeHTML.js"></script>
+    <script src="./js/setMaxLevel.js"></script>
+    <script>
+      includeHTML();
+    </script>
+  </body>
+</html>

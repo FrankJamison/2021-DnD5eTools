@@ -1,0 +1,151 @@
+html,
+body {
+    font-family: "Cinzel Decorative", "Palatino Light", Times, Times New Roman, Georgia, serif;
+    height: 100%;
+    color: #FFF;
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    color: #c4ae78;
+    transition: all 0.33s;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    color: #ecd19a;
+    text-shadow: 0px 0px 6px #000000;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color: #FFF;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.6rem;
+    text-shadow: 0px 0px 6px #000000;
+    text-align: center;
+}
+
+h3,
+h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ad835a;
+    text-shadow: 0px 0px 4px #000000;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input,
+select {
+    margin: 10px;
+    font: inherit;
+}
+
+.wrapper {
+    position: relative;
+    margin: 0 auto;
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.divider {
+    height: 55px;
+    margin: -18px 0px;
+    position: relative;
+    z-index: 15;
+}
+
+.divider:before {
+    left: 0;
+    margin-right: 82px;
+    right: 50%;
+    background: url(../images/divider-sprite.png) repeat-x 50% 0;
+    content: "";
+    height: 55px;
+    position: absolute;
+    top: 0;
+}
+
+.divider:after {
+    left: 50%;
+    margin-left: 82px;
+    right: 0;
+    background: url(../images/divider-sprite.png) repeat-x 50% 0;
+    content: "";
+    height: 55px;
+    position: absolute;
+    top: 0;
+}
+
+.divider-rule {
+    background: url(../images/divider-sprite.png) repeat-x 50% 100%;
+    border: 0;
+    height: 55px;
+    left: 50%;
+    margin: 0 0 0 -82px;
+    position: absolute;
+    top: 5px;
+    width: 164px;
+}
+
+.heading-divider {
+    background: url(../images/section-separator.png) 50% 100% no-repeat;
+    position: relative;
+    margin-top: 0;
+    height: 1rem;
+    z-index: 0;
+}
+
+.button {
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.35);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
+    background-image: linear-gradient(to bottom, #b93a27, #9e1e0b);
+    background-image: -webkit-linear-gradient(top, #b93a27, #9e1e0b);
+    color: #f3aa55;
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+    background-size: 1px 200px;
+    border: 1px solid #b93a27;
+    font: inherit;
+}
+
+.button:hover {
+    color: #ffcb8d;
+    background-position: 100px;
+    background-image: linear-gradient(to bottom, #b93a27, #9e1e0b);
+    background-image: -webkit-linear-gradient(top, #b93a27, #9e1e0b);
+}

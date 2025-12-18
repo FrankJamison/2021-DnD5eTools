@@ -1,0 +1,39 @@
+header {
+    padding: 1em;
+    position: fixed;
+    width: 100%;
+    padding: 0;
+    z-index: 10;
+}
+
+.header-content {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(rgba(34, 34, 34, 0.95), rgba(34, 34, 34, 0.75));
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-content ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-title {
+    color: #bdbdbd;
+    font-size: 18px;
+    margin-left: 15px;
+    width: 100%;
+}
+
+.site-title:hover {
+    color: #fff;
+}
+
+.divider-rule.header {
+    background: url(../images/divider-sprite.png) repeat-x 50% 0;
+    top: 0
+}

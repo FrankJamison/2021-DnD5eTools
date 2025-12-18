@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" width="device-width, initial-scale=1.0">
+    <title>DnD5eTools.com Physical Stat Generator</title>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Cinzel+Decorative" rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/footer.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div include-html="header.html"></div>
+
+        <main>
+            <div class="container features">
+                <h1>D&amp;D 5E Physical Stat Generator</h1>
+                <h2 class="info">Select a Dungeons &amp; Dragons 5th edition race and generate an appropriate random
+                    height, weight, and age for your next character...
+                </h2>
+
+                <h3>Choose Your Race</h3>
+                <div id="race-selector">
+                    <select name="race" id="race">
+                        <option value="aarakocra">Aarakocra</option>
+                        <option value="aasimar_fallen">Aasimar, Fallen</option>
+                        <option value="aasimar_protector">Aasimar, Protector</option>
+                        <option value="aasimar_scourge">Aasimar, Scourge</option>
+                        <option value="aasimar_variant">Aasimar, Variant</option>
+                        <option value="bugbear">Bugbear</option>
+                        <option value="centaur">Centaur</option>
+                        <option value="changeling">Changeling</option>
+                        <option value="dragonborn">Dragonborn</option>
+                        <option value="dragonborn_draconblood">Dragonborn, Draconblood</option>
+                        <option value="dragonborn_ravenite">Dragonborn, Ravenite</option>
+                        <option value="dwarf_gray">Dwarf, Gray (Duergar)</option>
+                        <option value="dwarf_hill">Dwarf, Hill</option>
+                        <option value="dwarf_mark_of_warding">Dwarf, Mark of Warding</option>
+                        <option value="dwarf_mountain">Dwarf, Mountain</option>
+                        <option value="elf_aereni_high">Elf, Aereni High</option>
+                        <option value="elf_aereni_wood">Elf, Aereni Wood</option>
+                        <option value="elf_dark">Elf, Dark (Drow)</option>
+                        <option value="elf_eladrin">Elf, Eladrin</option>
+                        <option value="elf_eladrin_variant">Elf, Eladrin Variant</option>
+                        <option value="elf_high">Elf, High</option>
+                        <option value="elf_mark_of_shadow">Elf, Mark of Shadow</option>
+                        <option value="elf_pallid">Elf, Pallid</option>
+                        <option value="elf_sea">Elf, Sea</option>
+                        <option value="elf_shadar_kai">Elf, Shadar-kai</option>
+                        <option value="elf_valenar_high">Elf, Valenar High</option>
+                        <option value="elf_valenar_wood">Elf, Valenar Wood</option>
+                        <option value="elf_wood">Elf, Wood</option>
+                        <option value="firbolg">Firbolg</option>
+                        <option value="genasi_air">Genasi, Air</option>
+                        <option value="genasi_earth">Genasi, Earth</option>
+                        <option value="genasi_fire">Genasi, Fire</option>
+                        <option value="genasi_water">Genasi, Water</option>
+                        <option value="gith_githyanki">Gith, Githyanki</option>
+                        <option value="gith_githzerai">Gith, Githzerai</option>
+                        <option value="gnome_deep">Gnome, Deep (Svirfneblin)</option>
+                        <option value="gnome_forest">Gnome, Forest</option>
+                        <option value="gnome_mark_of_scribing">Gnome, Mark of Scribing</option>
+                        <option value="gnome_rock">Gnome, Rock</option>
+                        <option value="goblin">Goblin</option>
+                        <option value="goliath">Goliath</option>
+                        <option value="grung">Grung</option>
+                        <option value="half_elf">Half-Elf</option>
+                        <option value="half_elf_aquatic">Half-Elf, Aquatic</option>
+                        <option value="half_elf_drow">Half-Elf, Drow</option>
+                        <option value="half_elf_high">Half-Elf, High</option>
+                        <option value="half_elf_mark_of_detection">Half-Elf, Mark of Detection</option>
+                        <option value="half_elf_mark_of_storm">Half-Elf, Mark of Storm</option>
+                        <option value="half_elf_wood">Half-Elf, Wood</option>
+                        <option value="halfling_ghostwise">Halfling, Ghostwise</option>
+                        <option value="halfling_lightfoot">Halfling, Lightfoot</option>
+                        <option value="halfling_lotusden">Halfling, Lotusden</option>
+                        <option value="halfling_mark_of_healing">Halfling, Mark of Healing</option>
+                        <option value="halfling_mark_of_hospitality">Halfling, Mark of Hospitality</option>
+                        <option value="halfling_stoute">Halfling, Stout</option>
+                        <option value="half_orc">Half-Orc</option>
+                        <option value="half_orc_mark_of_finding">Half-Orc, Mark of Finding</option>
+                        <option value="hobgoblin">Hobgoblin</option>
+                        <option value="human">Human</option>
+                        <option value="human_mark_of_finding">Human, Mark of Finding</option>
+                        <option value="human_mark_of_handling">Human, Mark of Handling</option>
+                        <option value="human_mark_of_making">Human, Mark of Making</option>
+                        <option value="human_mark_of_passage">Human, Mark of Passage</option>
+                        <option value="human_mark_of_sentinel">Human, Mark of Sentinel</option>
+                        <option value="human_variant">Human, Variant</option>
+                        <option value="kalashtar">Kalashtar</option>
+                        <option value="kenku">Kenku</option>
+                        <option value="kobold">Kobold</option>
+                        <option value="leonin">Leonin</option>
+                        <option value="lizardfolk">Lizardfolk</option>
+                        <option value="locathah">Locathah</option>
+                        <option value="loxodon">Loxodon</option>
+                        <option value="minotaur">Minotaur</option>
+                        <option value="orc">Orc</option>
+                        <option value="orc_of_eberron">Orc of Eberron</option>
+                        <option value="orc_of_exandria">Orc of Exandria</option>
+                        <option value="satyr">Satyr</option>
+                        <option value="shifter_beasthide">Shifter, Beasthide</option>
+                        <option value="shifter_longtooth">Shifter, Longtooth</option>
+                        <option value="shifter_swiftstride">Shifter, Swiftstride</option>
+                        <option value="shifter_wildhunt">Shifter, Wildhunt</option>
+                        <option value="simic_hybrid_elf">Simic Hybrid Elf</option>
+                        <option value="simic_hybrid_human">Simic Hybrid Human</option>
+                        <option value="simic_hybrid_vedalken">Simic Hybrid Vedalken</option>
+                        <option value="tabaxi">Tabaxi</option>
+                        <option value="tiefling">Tiefling</option>
+                        <option value="tiefling_baalzebul">Tiefling, Baalzebul</option>
+                        <option value="tiefling_dispater">Tiefling, Dispater</option>
+                        <option value="tiefling_feral">Tiefling, Feral</option>
+                        <option value="tiefling_feral_variant">Tiefling, Feral Variant</option>
+                        <option value="tiefling_fierna">Tiefling, Fierna</option>
+                        <option value="tiefling_glasya">Tiefling, Glasya</option>
+                        <option value="tiefling_levistus">Tiefling, Levistus</option>
+                        <option value="tiefling_mammon">Tiefling, Mammon</option>
+                        <option value="tiefling_mephistopheles">Tiefling, Mephistopheles</option>
+                        <option value="tiefling_variant">Tiefling, Variant</option>
+                        <option value="tiefling_zariel">Tiefling, Zariel</option>
+                        <option value="tortle">Tortle</option>
+                        <option value="triton">Triton</option>
+                        <option value="vedalken">Vedalken</option>
+                        <option value="verdan_small">Verdan (small)</option>
+                        <option value="verdan_medium">Verdan (medium)</option>
+                        <option value="warforged">Warforged</option>
+                        <option value="yuan_ti_pureblood">Yuan-ti Pureblood</option>
+                    </select>
+                </div>
+
+                <div id="calc-stats-button">
+                    <button id="calc-stats" class="button">Calculate Characteristics</button>
+                </div>
+
+                <div class="calculated-stats" id="calculated-stats">
+                    <article class="features-item">
+                        <h4>Racial Stat Ranges</h4>
+                        <div id="characteristicsRanges"></div>
+                    </article>
+                    <article class="features-item">
+                        <h4>Your Stats</h4>
+                        <div id="characteristics"></div>
+                    </article>
+                </div>
+            </div>
+        </main>
+
+        <div include-html="footer.html"></div>
+    </div>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="./js/races.js"></script>
+    <script src="./js/physicalCharacteristics.js"></script>
+    <script src="./js/includeHTML.js"></script>
+    <script>includeHTML();</script>
+</body>
+
+</html>

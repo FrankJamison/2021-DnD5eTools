@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" width="device-width, initial-scale=1.0">
+    <title>DnG5eTools.com Character Ability Generator</title>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Cinzel+Decorative" rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/footer.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div include-html="header.html"></div>
+
+        <main>
+            <div class="container features">
+                <h1>D&amp;D 5E Ability Generator</h1>
+                <h2 class="info">
+                    If you like the thrill of rolling random ability scores, this is the app for you! Using the standard
+                    4d6 - Drop the Lowest algorithm, start your character creation journey here...
+                </h2>
+
+                <h3>Roll Your Stats</h3>
+                <div class="section-image">
+                    <img src="./images/3d6.png" alt="">
+                </div>
+
+                <div id="calc-abilities-button">
+                    <button id="calc-abilities" class="button">Calculate Abilities</button>
+                </div>
+
+                <div class="calculated-abilities" id="calculated-abilities">
+                    <article class="features-item">
+                        <h3>Assigned Abilities</h3>
+                        <div id="assigned-abilities"></div>
+                    </article>
+                    <article class="features-item">
+                        <h3>Ordered Abilities</h3>
+                        <div id="ordered-abilities"></div>
+                    </article>
+                </div>
+            </div>
+        </main>
+
+        <div include-html="footer.html"></div>
+    </div>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="./js/abilityGenerator.js"></script>
+    <script src="./js/includeHTML.js"></script>
+    <script>includeHTML();</script>
+</body>
+<script src="./js/characters.js"></script>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DnD 5e Tools Home Page</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Cinzel|Cinzel+Decorative"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/menu.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div include-html="header.html"></div>
+
+      <main class="index">
+        <h1>Welcome to the DnD 5e Tools website!</h1>
+        <!-- <p class="center">
+          Here we present a number of tools for you to use during character
+          generation in the 5th Edition of Dungeons & Dragons.
+        </p>
+        <p class="center">
+          The tools here include a random physical stat generator that covers
+          all of the official races available to date to determine the height,
+          weight, and age of your character; an ability generator that uses the
+          roll 4d6 and drop lowest paradigm; and a slew of pre-generated
+          characters for you to choose from if you just want to pick up a
+          character sheet and go.
+        </p> -->
+
+        <div class="home-menu">
+          <a href="./physical-stats.html"
+            ><img
+              src="./images/Physical-Stat-Generator.jpg"
+              alt="Physical Stat Generator"
+          /></a>
+          <a href="./abilities.html"
+            ><img
+              src="./images/Ability-Score-Generator.jpg"
+              src="Ability Score Generator"
+          /></a>
+          <a href="./pregen-characters.html"
+            ><img
+              src="./images/Pre-Generated-Characters.jpg"
+              src="Pre-Generated Characters"
+          /></a>
+          <!-- </div>
+        <div class="home-menu"> -->
+          <a
+            href="./documents/DnD5eTools.com Magic Arms and Armor Price Guide.pdf"
+            target="_blank"
+            ><img
+              src="/images/Magic-Arms-And-Armor-Price-Guide.jpg"
+              alt="Magic Arms and Armor Price Guide"
+          /></a>
+          <a
+            href="./documents/DnD5eTools.com Wondrous Magic Item Price Guide.pdf"
+            target="_blank"
+            ><img
+              src="./images/Wondrous-Magic-Item-Price-Guide.jpg"
+              alt="Wondrous Magic Item Price Guide"
+          /></a>
+        </div>
+      </main>
+
+      <div include-html="footer.html"></div>
+    </div>
+    <script src="./js/includeHTML.js"></script>
+    <script>
+      includeHTML();
+    </script>
+  </body>
+</html>
