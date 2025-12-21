@@ -80,6 +80,18 @@ All pages render a consistent nav and footer using a lightweight HTML include me
 
 **Important:** because this uses HTTP requests, you must run the site from a local web server (not `file://`).
 
+### Page Bootstrapping (How JavaScript is wired up)
+Each page is intentionally “simple HTML + a few scripts”, so the runtime behavior is easy to follow.
+
+- **Common pattern:** pages load their feature script(s), then load `js/includeHTML.js`, and finally call `includeHTML()`.
+- **jQuery pages:** `abilities.html` and `physical-stats.html` load `js/jquery-1.12.4.min.js` and use `$(document).ready(...)` to attach click handlers.
+- **Vanilla JS page:** `pregen-characters.html` uses plain DOM APIs + ES6 class syntax (`CharacterList`), and includes shims (via CDN) for broader compatibility.
+
+For the character gallery, the JavaScript entrypoint is `js/app.js`:
+- constructs a `CharactersService` instance (data source)
+- constructs a `CharacterList` instance (DOM renderer)
+- calls `characterList.init()` to render initial results
+
 ---
 
 ## Feature Details
@@ -97,6 +109,11 @@ All pages render a consistent nav and footer using a lightweight HTML include me
 1. Roll 4 integers in `[1..6]`
 2. Sum the rolls
 3. Subtract the smallest roll
+
+**Implementation notes**
+- The click handler is bound to the `#calc-abilities` button.
+- Results are written into `#assigned-abilities` and `#ordered-abilities` using `innerHTML` via jQuery.
+- After generating values, the script scrolls to results by setting `window.location.href = '#calculated-abilities'`.
 
 ---
 
@@ -121,6 +138,15 @@ This tool generates random **age**, **height**, and **weight** based on D&D 5e r
 3. `getCharacteristicRanges()` computes min/max and age brackets
 4. Randomized stats are rolled using dice expressions like `2d10`
 5. Results are rendered into the page
+
+### Dice Parsing
+The physical stat generator stores dice expressions as strings like `2d10`.
+
+- `getMinRoll('XdY')` returns `X` (all ones)
+- `getMaxRoll('XdY')` returns `X * Y`
+- `rollDice('XdY')` loops `X` times and rolls `1..Y`
+
+The “height modifier roll” is stored as `character.HeightModRoll` and then reused in weight calculation (matching the 5e tables).
 
 ### Notes
 - Height is stored as inches and converted to feet/inches for display.
@@ -153,6 +179,11 @@ This is a searchable list of characters that links to:
   - selected class, or
   - level above `character_max_level`
 
+### Form/Filtering Mechanics
+- Class selection triggers `setMaxLevel(className)` (from `js/setMaxLevel.js`) which populates the level dropdown with `1..20`.
+- Clicking **Search** runs `doGetCharacters(event)` (from `js/getCharacterSelection.js`), prevents the form submission, and calls `characterList.init()` to re-render.
+- Filtering is applied during render by comparing the selected class/level to each character’s `character_class` and `character_max_level`.
+
 ### Asset Linking Conventions
 The gallery constructs asset URLs **by convention**, so naming matters.
 
@@ -170,6 +201,12 @@ The gallery constructs asset URLs **by convention**, so naming matters.
 
 Special case:
 - For **Verdan**, the image path changes based on level (< 5 uses ` (Young)`, >= 5 uses ` (Mature)`).
+
+### “Service + View” Separation
+The gallery is split into two layers:
+
+- `CharactersService` (`js/characters-api.service.js`): provides character data (currently static, but structured like a real API call)
+- `CharacterList` (`js/characters.service.js`): turns records into DOM and mounts them under `#characters`
 
 ---
 
@@ -217,9 +254,55 @@ images/characters/<Class>/
 
 Ensure the filename matches the conventions described above.
 
+#### Naming rules (gallery relies on exact strings)
+The gallery builds file paths from a mix of:
+
+- the **selected** class/level in the form (dropdown text/value), and
+- the character record fields (`character_name`, `character_build`, `character_class`, `character_race`).
+
+That means **spelling, spaces, punctuation, and casing must match** across:
+
+- the class dropdown (`pregen-characters.html`)
+- folder names under `documents/characters/<level>/<Class>/` and `images/characters/<Class>/`
+- the `character_name` and `character_build` strings in `js/characters-api.service.js`
+
+**PDF filenames** are generated like:
+
+```
+<Class> <level> [<Build>] - <Character Name>.pdf
+```
+
+Example:
+
+```
+documents/characters/5/Warlock/Warlock 5 [The Undying] - Utassi Birdcruncher.pdf
+```
+
+**Image filenames** are generated like:
+
+```
+<Character Name>.jpg
+```
+
+Example:
+
+```
+images/characters/Warlock/Utassi Birdcruncher.jpg
+```
+
+Verdan special case:
+- For a character whose `character_race` is exactly `Verdan`, the image name must be either `"<Name> (Young).jpg"` (level < 5) or `"<Name> (Mature).jpg"` (level >= 5).
+
 ### Add or adjust a race
 1. Add/update the race object in `js/races.js`.
 2. Ensure `prepCharacter()` in `js/physicalCharacteristics.js` maps the UI label to the correct race object.
+
+#### Naming rules (physical stats)
+`prepCharacter(race)` compares the selected dropdown *label text* (e.g. `"Elf, Dark (Drow)"`) against a long set of `if/else` string checks.
+
+When adding/renaming a race:
+- Update the `<option>` label text in `physical-stats.html` and the matching string in `prepCharacter()` together.
+- Ensure the referenced race object exists in `js/races.js` and has the expected fields (`AdultAge`, `MaxAge`, `BaseHeight`, `HeightModifier`, `BaseWeight`, `WeightModifier`).
 
 ---
 
